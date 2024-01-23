@@ -1,0 +1,157 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="widget card">
+        <h3 class="card-title">Total Print Times</h3>
+        <p class="card-text">{{ totalPrintTimes }} hours</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="widget card" style="background-color: rgb(105, 110, 62);">
+        <h3 class="card-title">Total Print Objects</h3>
+        <p class="card-text">{{ totalPrintObjects }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="widget card" style="background-color: rgb(48, 77, 77);">
+        <h3 class="card-title">Success Rate</h3>
+        <p class="card-text">{{ successRate }}%</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Profile Settings</h2>
+      <form (ngSubmit)="saveSettings()">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" [value]="profileSettings.username" class="form-control" placeholder="User1" disabled>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="username" [value]="profileSettings.email" class="form-control" placeholder="User1" disabled>
+        </div>
+        <div class="form-group">
+          <label for="email">Password:</label>
+          <div class="input-group">
+            <input type="{{ passwordVisible ? 'text' : 'password' }}" id="username" [value]="profileSettings.password" class="form-control" placeholder="User1" disabled>
+
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()">
+              {{ passwordVisible ? 'Hide' : 'Show' }}
+            </button>
+            <button class="btn btn-primary">Change Password</button>
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="bio">Bio:</label>
+          <textarea id="bio" [(ngModel)]="profileSettings.bio" class="form-control" rows="4"></textarea>
+
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 5px;">Save</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h2>Your prints</h2>
+      <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Filer Name</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="assets/images/coaster/coaster-1.png" alt="Image" class="row-image"></td>
+            <td>Tree wood</td>
+            <td>Completed</td>
+            <td>
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="text-right" title="Print Time:&#10;12:03:44:12 &#10;Filament Type: &#10; PLA">
+                    <button class="btn btn-primary btn-sm" style="cursor: not-allowed; pointer-events: none;">Details</button>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-danger btn-sm" style="margin-left: 5px;">Print Again</button>
+                </div>
+              </div>
+            </td>
+        </tr>    <tr>
+          <td><img src="assets/images/image-1_1.jpg" alt="Image" class="row-image"></td>
+          <td>Spetula</td>
+          <td>Failed</td>
+          <td>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="text-right" title="Print Time:&#10;12:03:44:12 &#10;Filament Type: &#10; PLA">
+                  <button class="btn btn-primary btn-sm" style="cursor: not-allowed; pointer-events: none;">Details</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-danger btn-sm" style="margin-left: 5px;">Print Again</button>
+              </div>
+            </div>
+          </td>
+      </tr>    <tr>
+        <td><img src="assets/images/coaster/coaster-2.png" alt="Image" class="row-image"></td>
+        <td>Design</td>
+        <td>Failed</td>
+        <td>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="text-right" title="Print Time:&#10;12:03:44:12 &#10;Filament Type: &#10; PLA">
+                <button class="btn btn-primary btn-sm" style="cursor: not-allowed; pointer-events: none;">Details</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-danger btn-sm" style="margin-left: 5px;">Print Again</button>
+            </div>
+          </div>
+        </td>
+    </tr>    <tr>
+      <td><img src="assets/images/coaster/coaster-5.png" alt="Image" class="row-image"></td>
+      <td>Funky</td>
+      <td>Completed</td>
+      <td>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="text-right" title="Print Time:&#10;12:03:44:12 &#10;Filament Type: &#10; PLA">
+              <button class="btn btn-primary btn-sm" style="cursor: not-allowed; pointer-events: none;">Details</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-danger btn-sm" style="margin-left: 5px;">Print Again</button>
+          </div>
+        </div>
+      </td>
+  </tr>
+    <tr>
+      <td><img src="assets/images/vase/vase-1.png" alt="Image" class="row-image"></td>
+      <td>Bottle neck</td>
+      <td>Completed</td>
+      <td>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="text-right" title="Print Time:&#10;12:03:44:12 &#10;Filament Type: &#10; PLA">
+              <button class="btn btn-primary btn-sm" style="cursor: not-allowed; pointer-events: none;">Details</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <button class="btn btn-danger btn-sm" style="margin-left: 5px;">Print Again</button>
+          </div>
+        </div>
+      </td>
+  </tr>
+
+      </tbody>
+    </table>
+    </div>
+  </div>
+  </div>
+
+
+  

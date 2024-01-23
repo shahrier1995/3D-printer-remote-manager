@@ -1,0 +1,95 @@
+
+  
+  /* Style the gallery cards */
+  .gallery-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+  
+  .gallery-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .card-img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
+  /* Style the "Print" button */
+.btn-print {
+    width: 100%;
+    background-color: #007bff; /* Blue color for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-print:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  /* model-gallery.component.css */
+
+/* model-gallery.component.css */
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-label,
+.category-label {
+  margin-right: 10px;
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.category-dropdown {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Optional: Style the dropdown arrow */
+.category-dropdown::after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  margin-left: 5px;
+}
+
+/* Optional: Style the dropdown options */
+.category-dropdown option {
+  background-color: #fff;
+  color: #333;
+}
+
+
+  

@@ -1,0 +1,58 @@
+<!-- model-gallery.component.html -->
+
+<div class="search-container">
+  <div class="search-bar">
+    <input id="searchInput" [(ngModel)]="searchQuery" placeholder="Search by name" class="search-input">
+    
+    <!-- Category Dropdown -->
+    <label for="categoryDropdown" style="padding-left: 10px;" class="category-label">Select Category:</label>
+    <select id="categoryDropdown" [(ngModel)]="selectedCategory" class="category-dropdown">
+      <option value="all">All</option>
+      <option value="vases">Vases</option>
+      <option value="coasters">Coasters</option>
+    </select>
+  </div>
+</div>
+
+
+<!-- Vases Section -->
+<div class="row" *ngIf="(selectedCategory === 'vases' || selectedCategory === 'all') && filteredVaseItems.length > 0">
+  <h1 style="margin-left: 10px; margin-bottom: 0px; margin-top: 20px;">Vases</h1>
+  <div class="col-md-2" *ngFor="let item of filteredVaseItems">
+    <div class="gallery-card">
+      <img class="card-img" [src]="item.imageUrl" alt="{{ item.name }}">
+      <div class="card-body">
+        <h2 style="padding-top: 3px;">{{ item.name }}</h2>
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary btn-print btn-sm">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Coasters Section -->
+<div class="row" *ngIf="(selectedCategory === 'coasters' || selectedCategory === 'all') && filteredCoasterItems.length > 0">
+  <h1 style="margin-left: 10px; margin-bottom: 0px; margin-top: 20px;">Coasters</h1>
+  <div class="col-md-2" *ngFor="let item of filteredCoasterItems">
+    <div class="gallery-card">
+      <img class="card-img" [src]="item.imageUrl" alt="{{ item.name }}">
+      <div class="card-body">
+        <h2 style="padding-top: 3px;">{{ item.name }}</h2>
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary btn-print btn-sm">Print</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Display a message if no matches are found -->
+<div class="row" *ngIf="isCategoryEmpty('vases') && isCategoryEmpty('coasters')">
+  <p>No matching items found.</p>
+</div>
+
+
+
+

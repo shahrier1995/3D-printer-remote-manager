@@ -1,0 +1,4 @@
+<!-- app.component.html -->
+<router-outlet></router-outlet> <!-- Your other components -->
+<app-chat-icon (toggleChat)="toggleChatBox()" *ngIf="!isLoginOrPrintSelection"></app-chat-icon>
+<app-chat-box [showChatBox]="isChatBoxVisible" (closeChat)="toggleChatBox()" *ngIf="!isLoginOrPrintSelection"></app-chat-box>

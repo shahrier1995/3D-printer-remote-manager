@@ -1,0 +1,54 @@
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+        <h1>Printer Selection Dashboard</h1>
+        <h3>Select a printer for instant print or book one for later print</h3>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color booked"></div>
+                <span style="padding-left: 3px;">Cant print</span>
+                <div class="legend-color not-booked"></div>
+                <span style="padding-left: 3px;">Can print</span>
+                <div class="legend-color can-print"></div>
+                <span style="padding-left: 3px;">Can book</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3" *ngFor="let item of galleryItems">
+        <div class="gallery-card" [style.background-color]="getBackgroundColor(item.IsBooked)">
+            <div class="video-container">
+                <video #videoPlayer autoplay (ended)="restartVideo(videoPlayer)">
+                    <source [src]="item.Source_file" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Name: {{ item.Name }}</h5>
+                <p class="card-text">Status: {{ item.Status }}</p>
+                <p class="card-text">Filament Type: {{ item.Filament_type }}</p>
+                <p class="card-text">
+                    Filament Color:
+                    <span class="filament-circle" [style.background-color]="item.Filament_color"></span>
+                    {{ item.Filament_color }}
+                  </p>
+                <p class="card-text">Bed Status: {{ item.Bed_status }}</p>
+                <p class="card-text">Booking Status: {{ item.Booking_status }}</p>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="item.Bed_status == 'Occupied'" routerLink="/" class="btn btn-primary btn-print">
+                    Select Printer
+                </button>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="item.IsBooked === 'true' || item.IsBooked === 'neutral'" (click)="openBookingModal(item)" class="btn btn-primary btn-print">
+                  Book a printer
+                </button>
+              </div>
+    </div>
+</div>

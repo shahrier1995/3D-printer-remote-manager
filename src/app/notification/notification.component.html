@@ -1,0 +1,57 @@
+    <div class="div-main">
+
+
+
+
+    <main>
+        <h1>Notification Log</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>File name</th>
+                    <th>Message</th>
+                    <th>Status</th> <!-- Added a new column for Read/Unread status -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="unread"> <!-- Added class "unread" for the first two rows -->
+                    <td>2023-11-15</td>
+                    <td class="notification success">Success</td>
+                    <td>Example.gcode</td>
+                    <td>Print completed successfully</td>
+                    <td>Unread</td>
+                </tr>
+                <tr>
+                    <td>2023-11-15</td>
+                    <td class="notification failed">Failed</td>
+                    <td>clock.gcode</td>
+                    <td>Error: Something went wrong.</td>
+                    <td>read</td>
+                </tr>
+                <tr>
+                    <td>2023-11-15</td>
+                    <td class="notification failed">Failed</td>
+                    <td>box.gcode</td>
+                    <td>Error: Something went wrong.</td>
+                    <td>Read</td>
+                </tr>
+                <tr>
+                    <td>2023-11-15</td>
+                    <td class="notification success">Success</td>
+                    <td>spoon.gcode</td>
+                    <td>Print completed successfully</td>
+                    <td>Read</td>
+                </tr>
+                <tr>
+                    <td>2023-11-15</td>
+                    <td class="notification success">Success</td>
+                    <td>car.gcode</td>
+                    <td>Print completed successfully</td>
+                    <td>Read</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</div>

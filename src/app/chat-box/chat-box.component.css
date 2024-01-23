@@ -1,0 +1,77 @@
+/* chat-box.component.css */
+/* chat-box.component.css */
+.chat-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000; /* Set a high z-index value to ensure it appears on top */
+  }
+  
+  
+  .chat-header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+/* chat-box.component.css */
+.chat-messages {
+    height: 200px; /* Set your desired fixed height */
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 80%; /* Set a maximum width for the messages */
+    background-color: rgb(160, 157, 157);
+  }
+  
+  .received {
+    align-self: flex-start; /* Align received messages to the left */
+    background-color: #e61a1a;
+  }
+  
+  .sent {
+    align-self: flex-end; /* Align sent messages to the right */
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  .chat-input {
+    display: flex;
+    padding: 10px;
+  }
+  
+  .chat-input input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .chat-input button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,107 @@
+
+<div class="container" style="padding-top: 20px">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- First Column -->
+          <h1>{{ printStatusText }}</h1>
+        </div>
+        <div class="col-md-4" style="margin-top: 10px;">
+          <div class="flex-container">
+            <div class="custom-progress-bar increment" 
+     [ngClass]="{'done-status': printStatusText === 'Print Done', 'no-done-status': printStatusText === 'Operational'}">
+              <div class="progress-text">
+                <strong><p style="padding-left: 170px;">{{ printStatusText === 'Print Done' ? 100 : progressValue }}%</p></strong>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="button-container">
+            <button class="btn btn-primary" style="margin-right: 5px;" [disabled]="showPrintAbout">
+              <i class="fa fa-print"></i> Print
+            </button>
+            <button class="btn btn-warning" style="margin-right: 5px;" [disabled]="!showPrintAbout">
+              <i class="fa fa-pause"></i> Pause
+            </button>
+            <button class="btn btn-danger" [disabled]="!showPrintAbout">
+              <i class="fa fa-times"></i> Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 style="margin: 0px;">{{ showPrintAbout ? 'About Printing' : 'About Last Print' }}</h2>
+          </div>
+          <div class="col-md-6  text-right" >
+            <div class="tooltip-container">
+              <span class="custom-tooltip-trigger" data-tooltip="Current Printing status">
+                <i style="float: right; margin-right: 10px;" class="fa fa-question-circle"></i>
+              </span>
+            </div>
+          </div>
+
+          
+        </div>
+        <div class="file-info">
+          <div class="row">
+            <div class="col-md-2">
+              <p><strong>File name:</strong></p>
+              <p>{{ showPrintAbout ? fileName : 'test.gcode' }}</p>
+            </div>
+            <div class="col-md-2">
+              <p><strong>Upload time:</strong></p>
+              <p>10:20 PM, 15 Sept 2023</p>
+            </div>
+            <div class="col-md-2">
+              <p><strong>Remaining print time:</strong><p><p> {{ showPrintAbout ? 'About Printing' : 'About Last Print' }}</p>
+            </div>
+            <div class="col-md-1">
+              <p><strong>User:</strong><p><p> User 1</p>
+            </div>
+            <div class="col-md-2">
+              <p><strong>Filament Type:</strong><p><p> PLA</p>
+            </div>
+            <div class="col-md-1">
+              <p><strong>Status:</strong> <p><p>{{ showPrintAbout ? 'Printing' : 'Success' }}</p>
+            </div>
+            <div class="col-md-2">
+              <p><strong>Total print time:</strong> <p><p>{{ showPrintAbout ? '01h 32m 30s' : '02h 32m 30s' }}</p>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <app-file-system></app-file-system>
+      </div>
+    </div>
+
+    </div>
+
+        
+
+<script>
+  $(document).ready(function () {
+  $('.custom-tooltip-trigger').hover(
+    function () {
+      $('.custom-tooltip', this.nextSibling).show();
+    },
+    function () {
+      $('.custom-tooltip', this.nextSibling).hide();
+    }
+  );
+});
+
+</script>

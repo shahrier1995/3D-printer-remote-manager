@@ -1,0 +1,83 @@
+<div class="container" style="padding-top: 20px; display: flex; justify-content: center; align-items: center;">
+    <div style="border: 2px solid black; position: relative;">
+      <canvas #temperatureChartCanvas width="800" height="400"></canvas>
+      <div style="position: absolute; top: 10px; right: 10px; background-color: white; padding: 5px; border: 1px solid black;">
+        <div style="display: flex; align-items: center;">
+          <div style="width: 10px; height: 10px; background-color: blue; margin-right: 5px;"></div>
+          <span style="margin-right: 20px;">Actual</span>
+          <div style="width: 10px; height: 10px; background-color: red; margin-right: 5px;"></div>
+          <span>Targeted</span>
+        </div>
+      </div>
+    </div>
+  </div>
+          <div class="row">
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-10">
+                <h2 style="margin: 0px;">Bed Temperature</h2>
+              </div>
+              <div class="col-md-2  text-right" >
+                <div class="tooltip-container">
+                  <span class="custom-tooltip-trigger" data-tooltip="Current Printing status">
+                    <i style="float: right; margin-right: 10px;" class="fa fa-question-circle"></i>
+                  </span>
+                </div>
+              </div>          
+            </div>
+            <div class="temperature-section">
+              <div class="temperature-row">
+                <div class="temperature-item">
+                  <p class="temperature-label">Actual</p>
+                  <p class="temperature-value">50°C</p>
+                  <div class="temperature-buttons">
+                    <button class="btn btn-sm btn-secondary temperature-button">-</button>
+                    <button class="btn btn-sm btn-primary temperature-button">+</button>
+                  </div>
+                </div>
+                <div class="temperature-item">
+                  <p class="temperature-label">Target</p>
+                  <p class="temperature-value">250°C</p>
+                  <div class="temperature-buttons">
+                    <button class="btn btn-sm btn-secondary temperature-button">-</button>
+                    <button class="btn btn-sm btn-primary temperature-button">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="row">
+              <div class="col-md-10">
+                <h2 style="margin: 0px;">Nozzle Temperature</h2>
+              </div>
+              <div class="col-md-2  text-right" >
+                <div class="tooltip-container">
+                  <span class="custom-tooltip-trigger" data-tooltip="Current Printing status">
+                    <i style="float: right; margin-right: 10px;" class="fa fa-question-circle"></i>
+                  </span>
+                </div>
+              </div>          
+            </div>
+            <div class="temperature-section">
+              <div class="temperature-row">
+                <div class="temperature-item">
+                  <p class="temperature-label">Actual</p>
+                  <p class="temperature-value">60°C</p>
+                  <div class="temperature-buttons">
+                    <button class="btn btn-sm btn-secondary temperature-button">-</button>
+                    <button class="btn btn-sm btn-primary temperature-button">+</button>
+                  </div>
+                </div>
+                <div class="temperature-item">
+                  <p class="temperature-label">Target</p>
+                  <p class="temperature-value">100°C</p>
+                  <div class="temperature-buttons">
+                    <button class="btn btn-sm btn-secondary temperature-button">-</button>
+                    <button class="btn btn-sm btn-primary temperature-button">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>

@@ -1,0 +1,100 @@
+.widget {
+    background-color: #3498db; /* Blue background color */
+    color: #ffffff; /* White text color */
+    border: 1px solid #2980b9; /* Darker blue border */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    cursor: pointer; /* Add pointer cursor for interaction */
+  
+    /* Box shadow for a subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover effect: Lighten the background color on hover */
+  .widget:hover {
+    background-color: #4da8da;
+  }
+  
+  /* Heading style */
+  .widget h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  
+  /* Text style */
+  .widget p {
+    font-size: 1.2rem;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  .container-fluid{
+    padding-top: 20px;
+  }
+
+
+  .div-main {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0px 0;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e5e5e5;
+}
+
+.row-image {
+    max-width: 60px; /* Adjust the maximum width as needed */
+    max-height: 60px; /* Adjust the maximum height as needed */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+  }
+/* your-component.component.css */
+.custom-tooltip-trigger {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .custom-tooltip-trigger:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    white-space: pre-line; /* Allow for line breaks */
+    z-index: 1;
+    bottom: 100%; /* Position above the trigger element */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  
+

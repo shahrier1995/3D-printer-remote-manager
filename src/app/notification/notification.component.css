@@ -1,0 +1,60 @@
+.div-main {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    padding-top: 20px;
+}
+
+aside {
+    width: 20%;
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #cccc2e;
+    color: white;
+}
+
+.notification.success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.notification.failed {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.notification {
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+.unread {
+    background-color: #54abe4;
+    color: white;
+}

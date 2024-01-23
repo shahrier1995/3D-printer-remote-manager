@@ -1,0 +1,91 @@
+<!-- camera-view.component.html -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="text-center">Camera view</h2>
+      <div class="camera-view">
+        <video #videoPlayer autoplay (ended)="restartVideo()">
+          <source src="assets/video/video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="row">
+        <h2 class="text-center">Controls</h2>
+        <div class="container" style="padding: 0px;">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="controller">
+                <div class="button-container">
+                  <div class="button">↑</div>
+                </div>
+                <div class="button-container">
+                  <div class="button">←</div>
+                  <span>Nozzle controller</span>
+                  <div class="button">→</div>
+                </div>
+                <div class="button-container">
+                  <div class="button">↓</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="controller">
+                <div class="button-container">
+                  <div class="button">↑</div>
+                </div>
+                <div class="button-container">
+                  <span>Bed controller</span>
+                </div>
+                <div class="button-container">
+                  <div class="button">↓</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+
+      <h2 class="text-center">Time lapse videos</h2>
+      <table class="camera-table">
+        <tr>
+          <th>image</th>
+          <th>File name</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <td><img [src]="imagePath" alt="Image" class="row-image"></td>
+          <td>Example file</td>
+          <td>20/12/2023 10:20 P.M</td>
+          <td>
+            <button class="icon-button"><i class="fa fa-download"></i></button>
+            <button class="icon-button"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td><img [src]="imagePath2" alt="Image" class="row-image"></td>
+          <td>Another file</td>
+          <td>21/12/2023 09:45 A.M</td>
+          <td>
+            <button class="icon-button"><i class="fa fa-download"></i></button>
+            <button class="icon-button"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+        <tr>
+          <td><img [src]="imagePath" alt="Image" class="row-image"></td>
+          <td>Important document</td>
+          <td>22/12/2023 03:30 P.M</td>
+          <td>
+            <button class="icon-button"><i class="fa fa-download"></i></button>
+            <button class="icon-button"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </table>
+      
+    </div>
+  </div>
+
+</div>

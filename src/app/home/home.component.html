@@ -1,0 +1,292 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar with toggle button -->
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar sidebar ">
+      <div class="sidebar-sticky">
+        <h3 class="text-center"><strong>Bia</strong></h3>
+        <h5><strong>Status:</strong> Printing</h5>
+        <h5><strong>Filament Type:</strong> PLA</h5>
+        <h5><strong>Filament Color:</strong><div class="filament-color-circle"></div>Red</h5>
+        <h5><strong>Bed Status:</strong> Free</h5>
+        <div class="container" style="padding-left: 10px; margin-left: auto; margin-right: auto; ">
+          <video #videoPlayer autoplay (ended)="restartVideo()" style="width: 180px;  margin-left: auto;border-radius: 10%;margin-right: auto;">
+            <source src="assets/video/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <ul class="nav flex-column">
+          <li>
+            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle" (click)="toggleSubMenu('showWidget')">
+              <i class="fa fa-solid fa-user"></i>
+              <span class="ms-1 d-none d-sm-inline align-middle element-selector">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle" (click)="toggleSubMenu('showProfile')">
+              <i class="fa fa-solid fa-user"></i>
+              <span class="ms-1 d-none d-sm-inline align-middle element-selector">Profile Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" *ngIf="showWidgetsMenu" data-bs-toggle="collapse" class="nav-link px-0 align-middle" (click)="toggleSubMenu('showWidget')">
+              <i class="fa fa-cogs align-middle"></i>
+              <span class="ms-1 d-none d-sm-inline align-middle another-element-selector">Widget</span>
+              <i class="fa fa-chevron-down float-end"></i> <!-- Down Icon -->
+            </a>
+            <ul *ngIf="showWidgetsMenu" class="collapse nav flex-column ms-1" id="submenu2" [ngClass]="{'show': isSubMenuOpen}">
+              <li class="w-100">
+                <label class="nav-link px-0">
+                  <input class="widget-toggle-checkbox" type="checkbox" id="printerCheckbox" [(ngModel)]="showPrinter" (ngModelChange)="updateSelectedCheckboxes()" disabled>
+                  Printer
+                </label>
+              </li>
+              <li class="w-100">
+                <label class="nav-link px-0">
+                  <input class="widget-toggle-checkbox" type="checkbox" id="fileListCheckbox" [(ngModel)]="showFileList" (ngModelChange)="updateSelectedCheckboxes()">
+                  File List
+                </label>
+              </li>
+              <li class="w-100">
+                <label class="nav-link px-0">
+                  <input class="widget-toggle-checkbox" type="checkbox" id="cameraViewCheckbox" [(ngModel)]="showCameraView" (ngModelChange)="updateSelectedCheckboxes()">
+                  Camera View
+                </label>
+              </li>
+              <li class="w-100">
+                <label class="nav-link px-0">
+                  <input class="widget-toggle-checkbox" type="checkbox" id="terminalViewCheckbox" [(ngModel)]="showTerminalView" (ngModelChange)="updateSelectedCheckboxes()">
+                  Terminal
+                </label>
+              </li>
+              <li class="w-100">
+                <label class="nav-link px-0">
+                  <input class="widget-toggle-checkbox" type="checkbox" id="temperatureViewCheckbox" [(ngModel)]="showTemperatureView" (ngModelChange)="updateSelectedCheckboxes()">
+                  Temperature
+                </label>
+              </li>
+              <li class="w-100">
+                <label class="nav-link px-0">
+                  <input class="widget-toggle-checkbox" type="checkbox" id="G-CodeViewCheckbox" [(ngModel)]="showGCodeViewView" (ngModelChange)="updateSelectedCheckboxes()">
+                  G-Code
+                </label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="toggleSubMenu('showError')">
+              <i class="fa fa-solid fa-user"></i>
+              <span class="ms-1 d-none d-sm-inline align-middle third-element-selector">Errors</span>
+            </a>
+          </li>
+<!-- notification.component.html -->
+<li>
+  <a href="#" class="nav-link px-0 align-middle notification-element-selector"
+     (click)="handleNotificationClick()">
+    <i class="fa fa-solid fa-user"></i>
+    <span class="ms-1 d-none d-sm-inline align-middle"
+          [ngClass]="{'notification-effect': notificationCount}"
+          (click)="toggleSubMenu('showNotification')">Notification</span>
+    <span class="notification-count" *ngIf="notificationCount">1</span>
+  </a>
+</li>
+
+
+          <li>
+            <a href="#" class="nav-link px-0 align-middle model-element-selector" (click)="toggleSubMenu('showModel')">
+              <i class="fa fa-solid fa-user"></i>
+              <span class="ms-1 d-none d-sm-inline align-middle">Model gallery</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="upload-section mt-2" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+        <div class="text-center">
+          <strong class="upload-instructions">Drag & Drop .gcode Files Here</strong>
+          <p class="or-text">or</p>
+        </div>
+        <input type="file" id="fileInput" (change)="onNavFileSelected($event)" accept=".gcode" style="display: none" />
+        <label for="fileInput" class="btn btn-primary btn-browse d-block mx-auto">Browse</label>
+        <div class="uploaded-file-info" *ngIf="selectedFileName">
+          <p><strong>Uploaded File:</strong> {{ selectedFileName }}</p>
+        </div>
+      </div>
+    </nav>
+<!-- home.component.html -->
+
+<!-- Navigation bar -->
+<!-- home.component.html -->
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light top-nav">
+  <div class="container" style="padding-left: 15%;">
+    <div class="d-flex align-items-center">
+      <!-- Button to trigger the collapse -->
+      <button class="btn btn-info" type="button" (click)="toggleCollapse()">
+        <i class="fa" [ngClass]="{'fa-plus': !isCollapsed, 'fa-minus': isCollapsed}"></i> Show/Hide Widgets
+      </button>
+
+      <div class="tooltip-container ml-2" style="padding: 10px;">
+        <span class="custom-tooltip-trigger" data-tooltip="Activate Advanced user for more options">
+          <i class="fa fa-question-circle"></i>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-primary" (click)="startTutorial()">Start Tutorial</button>
+      <button class="btn btn-danger ml-2" style="margin-left: 10px;" routerLink="login" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div [ngClass]="{'show': !isCollapsed, 'collapse': isCollapsed}" class="collapsible-section">
+  <ul class="nav flex-column ms-1" id="submenu2" >
+    <li>
+      <div class="row">
+        <div class="col-md-2">
+          <!-- Printer Switch -->
+          <div class="card text-center" style="width: 110px;">
+            <div class="card-body">
+              <i class="fa fa-print" style="font-size: 24px;"></i>
+              <h5 class="card-title mt-2">Printer</h5>
+              <div class="form-check form-switch">
+                <input class="form-check-input" style="width: 70px; height: 35px;" type="checkbox" id="printerSwitch" [(ngModel)]="showPrinter" (ngModelChange)="updateSelectedCheckboxes()">
+                <label class="form-check-label" for="printerSwitch"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <!-- File List Switch -->
+          <div class="card text-center" style="width: 110px;">
+            <div class="card-body">
+              <i class="fa fa-file" style="font-size: 24px;"></i>
+              <h5 class="card-title mt-2">File List</h5>
+              <div class="form-check form-switch">
+                <input class="form-check-input" style="width: 70px; height: 35px;" type="checkbox" id="fileListCheckbox" [(ngModel)]="showFileList" (ngModelChange)="updateSelectedCheckboxes()">
+                <label class="form-check-label" for="fileListCheckbox"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+                <!-- Camera Switch -->
+                <div class="card text-center" style="width: 110px;">
+                  <div class="card-body">
+                    <i class="fa fa-camera" style="font-size: 24px;"></i>
+                    <h5 class="card-title mt-2">Camera</h5>
+          <div class="form-check form-switch">
+            <input class="form-check-input" style="width: 70px; height: 35px;" type="checkbox" id="cameraViewCheckbox" [(ngModel)]="showCameraView" (ngModelChange)="updateSelectedCheckboxes()">
+            <label class="form-check-label" for="cameraViewCheckbox"></label>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="col-md-2">
+                <!-- Terminal Switch -->
+                <div class="card text-center" style="width: 110px;">
+                  <div class="card-body">
+                    <i class="fa fa-terminal" style="font-size: 24px;"></i>
+                    <h5 class="card-title mt-2">Terminal</h5>
+          <div class="form-check form-switch">
+            <input class="form-check-input" style="width: 70px; height: 35px;" type="checkbox" id="terminalViewCheckbox" [(ngModel)]="showTerminalView" (ngModelChange)="updateSelectedCheckboxes()">
+            <label class="form-check-label" for="terminalViewCheckbox"></label>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="col-md-2">
+          
+      <!-- Temperature Switch -->
+      <div class="card text-center" style="width: 110px;">
+        <div class="card-body">
+          <i class="fa fa-thermometer-half" style="font-size: 24px;"></i>
+          <h5 class="card-title mt-2">Temperature</h5>
+          <div class="form-check form-switch">
+            <input class="form-check-input" style="width: 70px; height: 35px;" type="checkbox" id="temperatureViewCheckbox" [(ngModel)]="showTemperatureView" (ngModelChange)="updateSelectedCheckboxes()">
+            <label class="form-check-label" for="temperatureViewCheckbox"></label>
+          </div>
+        </div>
+      </div>
+        </div>
+    <div class="col-md-2">
+      <div class="card text-center" style="width: 110px;">
+        <div class="card-body">
+
+          <i class="fa fa-brands fa-codepen" style="font-size: 24px;"></i>
+          <h5 class="card-title mt-2">G-Code</h5>
+          <div class="form-check form-switch">
+            <input class="form-check-input" style="width: 70px; height: 35px;" type="checkbox" id="G-codeViewCheckbox" [(ngModel)]="showGCodeViewView" (ngModelChange)="updateSelectedCheckboxes()">
+            <label class="form-check-label" for="G-codeViewCheckbox"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+
+
+
+
+
+
+
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 main">
+
+      <mat-tab-group *ngIf="showWidgets">
+        <mat-tab *ngFor="let tab of selectedCheckboxes" [label]="tab">
+          <ng-container *ngIf="tab === 'Printer'">
+            <app-print-section [fileName]="selectedFileName"></app-print-section>
+          </ng-container>
+          <ng-container *ngIf="tab === 'File List'">
+            <app-file-system (fileSelected)="onFileSelected($event)"></app-file-system>
+          </ng-container>
+          <ng-container *ngIf="tab === 'Camera View'">
+            <app-camera-view></app-camera-view>
+          </ng-container>
+          <ng-container *ngIf="tab === 'Terminal'">
+            <app-terminal></app-terminal>
+          </ng-container>
+          <ng-container *ngIf="tab === 'Temperature'">
+            <app-temperature></app-temperature>
+          </ng-container>
+          <ng-container *ngIf="tab === 'G-Code Viewer'">
+            <app-g-gode-viewer></app-g-gode-viewer>
+          </ng-container>
+        </mat-tab>
+      </mat-tab-group>
+      <app-error *ngIf="showErrors"></app-error>
+      <app-profile-settings *ngIf="showProfile"></app-profile-settings>
+      <app-notification *ngIf="showNotification"></app-notification>
+      <app-model-gallery *ngIf="showModel"></app-model-gallery>
+    </main>
+    
+
+  </div>
+</div>
+
+<script>
+  function toggleCheckboxes(event) {
+    const target = event.target;
+    if (target.tagName === 'A' && !target.nextElementSibling.contains(event.relatedTarget)) {
+      const checkbox = target.nextElementSibling.querySelector('.widget-toggle-checkbox');
+      checkbox.checked = !checkbox.checked;
+    }
+  }
+</script>

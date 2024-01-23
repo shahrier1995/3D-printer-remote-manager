@@ -1,0 +1,139 @@
+<div class="container" style="padding-top: 20px;">
+<div class="row">
+    <div class="col">
+      <h4>File List</h4>
+      <div class="filter-container">
+        <!-- Styled radio buttons -->
+        <div class="radio-container">
+          <label>
+            <input type="radio" name="statusFilter" [(ngModel)]="statusFilter" value="all" (change)="filterFiles()"> All
+          </label>
+          <label>
+            <input type="radio" name="statusFilter" [(ngModel)]="statusFilter" value="Completed" (change)="filterFiles()"> Completed
+          </label>
+          <label>
+            <input type="radio" name="statusFilter" [(ngModel)]="statusFilter" value="Failed" (change)="filterFiles()"> Failed
+          </label>
+          <label>
+            <input type="radio" name="statusFilter" [(ngModel)]="statusFilter" value="Pending" (change)="filterFiles()"> Pending
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col d-flex justify-content-center align-items-center">
+
+      </div>
+    </div>
+
+    
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col" (click)="sort('fileName')">
+                File name
+                <span *ngIf="sortKeys['fileName']" class="arrow arrow-up">↑</span>
+                <span *ngIf="!sortKeys['fileName']" class="arrow arrow-down">↓</span>
+              </th>
+              <th scope="col" (click)="sort('printDateTime')">
+                Print Time
+                <span *ngIf="sortKeys['printDateTime']" class="arrow arrow-up">↑</span>
+                <span *ngIf="!sortKeys['printDateTime']" class="arrow arrow-down">↓</span>
+              </th>
+              <th scope="col" (click)="sort('status')">
+                Status
+                <span *ngIf="sortKeys['status']" class="arrow arrow-up">↑</span>
+                <span *ngIf="!sortKeys['status']" class="arrow arrow-down">↓</span>
+              </th>
+          <th>Action</th>
+        </tr>
+      </thead>
+    <tbody>
+        <tr *ngFor="let file of getPaginatedList(); let i = index">
+        <td [ngClass]="{
+            'success-row': file.status === 'Completed',
+            'danger-row': file.status === 'Failed',
+            'pending-row': file.status === 'Pending',
+            'printing-row': file.status === 'Printing'
+            }">{{ file.fileName }}</td>
+        <td [ngClass]="{
+            'success-row': file.status === 'Completed',
+            'danger-row': file.status === 'Failed',
+            'pending-row': file.status === 'Pending',
+            'printing-row': file.status === 'Printing'
+          }">{{ file.printDateTime }}</td>
+        <td [ngClass]="{
+            'success-row': file.status === 'Completed',
+            'danger-row': file.status === 'Failed',
+            'pending-row': file.status === 'Pending',
+            'printing-row': file.status === 'Printing'
+          }">{{ file.status }}</td>
+        <td [ngClass]="{
+            'success-row': file.status === 'Completed',
+            'danger-row': file.status === 'Failed',
+            'pending-row': file.status === 'Pending',
+            'printing-row': file.status === 'Printing'
+          }">
+        <button class="btn btn-primary btn-sm" (click)="toggleDetails(file)">
+            {{ selectedFile === file ? '✖' : 'Details' }}
+        </button>
+        <button class="btn btn-warning btn-sm" style="margin-left: 5%">Print Again</button>
+          <button class="btn btn-danger btn-sm" style="margin-left: 5%">Delete</button>
+            <!-- Inline popup to display details -->
+        <div *ngIf="selectedFile === file" class="details-popup">
+            <h2>Print Details</h2>
+            <p><strong>File Name:</strong> {{ file.fileName }}</p>
+            <p><strong>Print Time:</strong> {{ file.printDateTime }}</p>
+            <p><strong>Print Status:</strong> {{ file.status }}</p>
+            <p><strong>File Size:</strong> {{ file.size }}</p>
+            <p><strong>Filament Type:</strong> {{ file.filamentType }}</p>
+            <p><strong>Filament Color:</strong> {{ file.filamentColor }}</p>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Pagination controls -->
+  <div class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" (click)="onPageChange(currentPage - 1)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPageNumbers()">
+        <a class="page-link" href="#" (click)="onPageChange(page)" [class.active]="currentPage === page">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getLastPage()">
+        <a class="page-link" href="#" (click)="onPageChange(currentPage + 1)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- Modal HTML -->
+<div id="uploadModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">Print Options</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Select an option below:</p>
+<div class="d-flex justify-content-between">
+  <button type="button" class="btn btn-success" (click)="printNow($event)">Print Now</button>
+  <button type="button" class="btn btn-secondary" (click)="printLater($event)">Print sdfsdfffddf</button>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  
+  

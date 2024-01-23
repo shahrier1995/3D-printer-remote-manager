@@ -1,0 +1,158 @@
+.custom-progress-bar {
+  width: 100%;
+  height: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-progress-bar div {
+  height: 100%;
+  width: 0;
+  border-radius: 8px;
+  animation: fillAnimation 10s linear forwards;
+}
+
+@keyframes fillAnimation {
+  0% {
+    width: 0;
+    background-color: #4CAF50; /* Initial background color */
+  }
+  100% {
+    width: 100%;
+    background-color: #4CAF50; /* Final background color */
+  }
+}
+
+.increment {
+  animation: incrementAnimation 10s steps(100, end) forwards;
+}
+
+@keyframes incrementAnimation {
+  0% {
+    content: "0%";
+  }
+  100% {
+    content: "100%";
+  }
+}
+
+.custom-progress-bar.done-status div {
+  width: 100%;
+  background-color: #4CAF50; /* Set the final background color for 'Print Done' status */
+  animation: none; /* Remove animation for 'Print Done' status */
+}
+.custom-progress-bar.no-done-status div {
+  width: 100%;
+  background-color: #f0f0f0; /* Set the final background color for 'Print Done' status */
+  animation: none; /* Remove animation for 'Print Done' status */
+}
+
+
+
+  /* Style for the table container */
+.table-container {
+    overflow: auto; /* Enable overflow for tables that exceed the container width */
+  }
+  
+  /* Style for the table */
+  .custom-table {
+    width: 100%; /* Make the table take 100% of the container width */
+    border-collapse: collapse; /* Collapse table borders */
+    border: 2px solid #000; /* Add a 2px solid black border */
+  }
+  
+  .custom-table th, .custom-table td {
+    border: 1px solid #000; /* Add a 1px solid black border to table cells */
+    padding: 8px; /* Add padding to cells for spacing */
+    text-align: left; /* Align text within cells */
+  }
+  
+  .printer-info {
+    margin: 0 auto; /* Center the content horizontally */
+    width: 70%; /* Limit the width to 70% of the container */
+  }
+  
+  
+
+  .flex-container {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+  }
+  
+  .progress-bar {
+    margin-right: 10px; /* Adjust the spacing between the progress bar and the h1 */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: 
+      radial-gradient(closest-side, white 79%, transparent 80% 100%),
+      conic-gradient(rgb(255, 125, 105) 75%, rgb(249, 238, 238) 0);    
+  }
+/* Add these styles to your component's CSS file */
+.file-info {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.file-info p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.file-info strong {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+.file-info hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0px 0;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  width: 100% ;
+  padding-top: 10px;
+}
+
+.custom-tooltip-trigger {
+  cursor: pointer;
+  width: 100% ;
+}
+
+.custom-tooltip-trigger::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  display: none;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  bottom: 100%; /* Position the tooltip above the trigger */
+  left: 85%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.custom-tooltip-trigger:hover::after {
+  display: block;
+}
+
+
+
+
+
+
+
+

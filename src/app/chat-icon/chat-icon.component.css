@@ -1,0 +1,16 @@
+
+  
+  /* chat-icon.component.css */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007BFF; /* Customize the color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000; /* Set a high z-index value */
+  }
+  

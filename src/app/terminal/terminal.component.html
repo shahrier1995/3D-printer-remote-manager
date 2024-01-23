@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            Terminal
+          </div>
+          <div class="terminal-body">
+            <pre>{{ terminalText }}</pre>
+          </div>
+        </div>
+      
+        <div class="controls-container">
+          <div class="input-container">
+            <input type="text" [(ngModel)]="inputText" placeholder="Type here...">
+            <button (click)="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="checkbox-list">
+          <label><input type="checkbox" [(ngModel)]="checkbox1"> Suppress temperature messages</label>
+          <label><input type="checkbox" [(ngModel)]="checkbox2"> Suppress SD status messages</label>
+          <!-- Add more checkboxes as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
